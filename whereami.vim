@@ -12,6 +12,10 @@ function! s:is_context(s)
     return 1
 endfunction
 
+function! s:ndigits(n)
+    return strlen(printf("%d", a:n))
+endfunction
+
 function! s:whereami()
 	let l:p = getpos(".")[1]
 	let l:mind = -1
@@ -23,7 +27,7 @@ function! s:whereami()
             if -1 == mind
                 let l:mind = ind
             elseif ind < mind
-                call insert(mlst, [ind, str])
+                call insert(mlst, [str, ind, p])
                 let l:mind = ind
             endif
         endif
@@ -34,8 +38,9 @@ endfunction
 
 function! Whereami()
 	let l:mlst = s:whereami()
+    let l:lfmt = printf(" %%%dd ", s:ndigits(line("$")))
     for s in mlst
-        echo repeat(" ", s[0]) . s[1]
+        echo printf(lfmt, s[2]) . repeat(" ", s[1]) . s[0]
     endfor
 endfunction
 
