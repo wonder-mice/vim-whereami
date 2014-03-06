@@ -12,8 +12,9 @@ function! s:is_context(s)
     return 1
 endfunction
 
-function! s:ndigits(n)
-    return strlen(printf("%d", a:n))
+function! s:nwidth()
+    let l:md = strlen(printf("%d", line("$")))
+    return max([&numberwidth - 1, l:md])
 endfunction
 
 function! s:whereami()
@@ -38,7 +39,7 @@ endfunction
 
 function! Whereami()
 	let l:mlst = s:whereami()
-    let l:lfmt = printf(" %%%dd ", s:ndigits(line("$")))
+    let l:lfmt = printf("%%%dd ", s:nwidth())
     for s in mlst
         echo printf(lfmt, s[2]) . repeat(" ", s[1]) . s[0]
     endfor
