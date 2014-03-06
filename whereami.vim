@@ -2,6 +2,16 @@ function! s:strip(s)
     return substitute(a:s, '^\s*\(.\{-}\)\s*$', '\1', '')
 endfunction
 
+function! s:is_context(s)
+    if 0 == strlen(a:s)
+        return 0
+    endif
+    if "{" == a:s
+        return 0
+    endif
+    return 1
+endfunction
+
 function! s:whereami()
 	let l:p = getpos(".")[1]
 	let l:mind = -1
@@ -9,7 +19,7 @@ function! s:whereami()
 	while 0 < p && 0 != mind
 		let l:ind = indent(p)
         let l:str = s:strip(getline(p))
-        if 0 < strlen(str)
+        if s:is_context(str)
             if -1 == mind
                 let l:mind = ind
             elseif ind < mind
