@@ -7,7 +7,7 @@ Print context for current cursor position based on source code indent.
 
 For example, open ActivityManagerNative.java from Android 4.3 source code on line 1797:
 ```bash
-$ vim frameworks/base/core/java/android/app/ActivityManagerNative.java +1797
+vim frameworks/base/core/java/android/app/ActivityManagerNative.java +1797
 ```
 In vim, type `:Whereami`. You will see indention based context in the bottom:
 ```
@@ -24,12 +24,12 @@ nnoremap <silent> <leader>w :Whereami<CR>
 
 Just throw file `plugin/whereami.vim` into `~/.vim/plugin` folder:
 ```bash
-$ git clone https://github.com/wonder-mice/vim-whereami.git vim-whereami.git
-$ mkdir -p ~/.vim/plugin
-$ cp vim-whereami.git/plugin/whereami.vim ~/.vim/plugin/
+git clone https://github.com/wonder-mice/vim-whereami.git vim-whereami.git
+mkdir -p ~/.vim/plugin
+cp vim-whereami.git/plugin/whereami.vim ~/.vim/plugin/
 ```
 Also you can use `curl` or `wget` to fetch `whereami.vim` only:
 ```bash
-$ mkdir -p ~/.vim/plugin
-$ curl https://raw.github.com/wonder-mice/vim-whereami/master/plugin/whereami.vim -o ~/.vim/plugin/whereami.vim
+mkdir -p ~/.vim/plugin
+curl https://raw.github.com/wonder-mice/vim-whereami/master/plugin/whereami.vim -o ~/.vim/plugin/whereami.vim
 ```
