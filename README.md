@@ -3,7 +3,7 @@ whereami.vim
 
 Print context for current cursor position based on source code indent.
 
-![Screenshot B](https://raw.github.com/wonder-mice/vim-whereami/master/doc/_screenshots/screenshot_b.png)
+![Screenshot B](https://raw.github.com/wonder-mice/vim-whereami/master/doc/_screenshots/screenshot_b-x1_2.png)
 
 For example, open ActivityManagerNative.java from Android 4.3 source code on line 1797:
 ```bash
