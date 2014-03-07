@@ -23,13 +23,15 @@ function! s:whereami()
 	let l:mlst = []
 	while 0 < p && 0 != mind
 		let l:ind = indent(p)
-        let l:str = s:strip(getline(p))
-        if s:is_context(str)
-            if -1 == mind
-                let l:mind = ind
-            elseif ind < mind
-                call insert(mlst, [str, ind, p])
-                let l:mind = ind
+        if ind < mind || -1 == mind
+            let l:str = s:strip(getline(p))
+            if s:is_context(str)
+                if -1 == mind
+                    let l:mind = ind
+                elseif ind < mind
+                    call insert(mlst, [str, ind, p])
+                    let l:mind = ind
+                endif
             endif
         endif
 		let l:p -= 1
