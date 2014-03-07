@@ -28,3 +28,8 @@ $ git clone https://github.com/wonder-mice/vim-whereami.git vim-whereami.git
 $ mkdir -p ~/.vim/plugin
 $ cp vim-whereami.git/plugin/whereami.vim ~/.vim/plugin/
 ```
+Also you can use `curl` or `wget` to fetch `whereami.vim` only:
+```bash
+$ mkdir -p ~/.vim/plugin
+$ curl https://raw.github.com/wonder-mice/vim-whereami/master/plugin/whereami.vim -o ~/.vim/plugin/whereami.vim
+```
