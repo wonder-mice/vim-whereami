@@ -48,4 +48,4 @@ function! Whereami()
     endfor
 endfunction
 
-nnoremap <leader>w :call Whereami()<CR>
+command -buffer -bar -nargs=0 Whereami :call Whereami()
