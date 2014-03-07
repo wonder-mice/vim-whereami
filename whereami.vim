@@ -18,23 +18,24 @@ function! s:nwidth()
 endfunction
 
 function! s:whereami()
-	let l:p = getpos(".")[1]
+	let l:n = getpos(".")[1]
 	let l:mind = -1
 	let l:mlst = []
-	while 0 < p && 0 != mind
+	while 0 < n && 0 != mind
+        let l:p = n
+        let l:n = p - 1
 		let l:ind = indent(p)
-        if ind < mind || -1 == mind
-            let l:str = s:strip(getline(p))
-            if s:is_context(str)
-                if -1 == mind
-                    let l:mind = ind
-                elseif ind < mind
-                    call insert(mlst, [str, ind, p])
-                    let l:mind = ind
-                endif
-            endif
+        if ind >= mind && -1 != mind
+            continue
         endif
-		let l:p -= 1
+        let l:str = s:strip(getline(p))
+        if !s:is_context(str)
+            continue
+        endif
+        if -1 != mind
+            call insert(mlst, [str, ind, p])
+        endif
+        let l:mind = ind
 	endwhile
     return mlst
 endfunction
