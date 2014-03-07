@@ -15,3 +15,16 @@ In vim, type `:Whereami`. You will see indention based context in the bottom:
  111     public boolean onTransact(int code, Parcel data, Parcel reply, int flags)
 1793         case GET_LAUNCHED_FROM_UID_TRANSACTION: {
 ```
+As usual, you can bind that command to some key combination, like `\w`:
+```
+nnoremap <silent> <leader>w :Whereami<CR>
+```
+
+## Installation
+
+Just throw file `plugin/whereami.vim` into `~/.vim/plugin` folder:
+```
+$ git clone https://github.com/wonder-mice/vim-whereami.git vim-whereami.git
+$ mkdir -p ~/.vim/plugin
+$ cp vim-whereami.git/plugin/whereami.vim ~/.vim/plugin/
+```
