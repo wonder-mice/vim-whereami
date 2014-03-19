@@ -1,3 +1,7 @@
+" Shows indention based context for current cursor position.
+" Function to call is Whereami. Key binding example:
+" nnoremap <silent> <leader>w :Whereami<CR>
+
 function! s:strip(s)
 	return substitute(a:s, '^\s*\(.\{-}\)\s*$', '\1', '')
 endfunction
