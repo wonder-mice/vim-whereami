@@ -52,4 +52,4 @@ function! Whereami()
 	endfor
 endfunction
 
-command -buffer -bar -nargs=0 Whereami :call Whereami()
+command -bar -nargs=0 Whereami :call Whereami()
